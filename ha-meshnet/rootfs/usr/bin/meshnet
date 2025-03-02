@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "All done!" > /share/ha_meshnet_output.txt
