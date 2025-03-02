@@ -1,3 +1,20 @@
 #!/bin/bash
 
+# Declare variables
+declare user
+declare password
+
+# Get the 'user' and 'password' from the environment variables
+user=${NORDVPN_USER}
+password=${NORDVPN_PASSWORD}
+
+# Log in to NordVPN
+echo "Logging in to NordVPN..."
+echo -e "${user}\n${password}" | nordvpn login --username ${user} --password ${password}
+
+# Connect to NordVPN
+echo "Connecting to NordVPN..."
+nordvpn connect
+
+# Indicate that the script has completed
 echo "All done!" > /share/ha_meshnet_output.txt
