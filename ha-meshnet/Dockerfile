@@ -1,5 +1,4 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM debian:latest
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -8,10 +7,6 @@ RUN apt-get update && apt-get install -y \
 
 # Install NordVPN CLI
 RUN curl -sSL https://downloads.nordcdn.com/apps/linux/install.sh | sh
-
-# Set environment variables for NordVPN credentials
-ENV NORDVPN_USER=<your_nordvpn_username>
-ENV NORDVPN_PASSWORD=<your_nordvpn_password>
 
 # Copy data for add-on
 COPY rootfs/etc/services.d/run /run.sh
